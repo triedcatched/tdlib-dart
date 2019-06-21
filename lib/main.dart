@@ -45,8 +45,8 @@ void checkAuth(var received) {
           'system_version': 'SysVersion',
           'application_version': "0.1",
           'system_language_code': 'en',
-          // 'database_directory': client.appDocDir.path,
-          'database_directory': client.appExtDir.path + "/tgy",
+          'database_directory': client.appDocDir.path,
+          // 'database_directory': client.appExtDir.path + "/tgy",
           'files_directory': client.appExtDir.path + "/tgy",
           'use_file_database': true,
           'use_chat_info_database': true,
@@ -58,7 +58,7 @@ void checkAuth(var received) {
     case "authorizationStateWaitEncryptionKey":
       client.sendRequest({
         '@type': 'checkDatabaseEncryptionKey',
-        'encryption_key': 'randomencryption'
+        'encryption_key': 'mostrandomencryption'
       }, () => checkAuth);
 
       break;
