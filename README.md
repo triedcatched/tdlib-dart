@@ -10,6 +10,7 @@ libtdjson.so for arm, arm64 and x86 arch has been pre-built.
 
 To build for Android: Setup flutter, download ndk-bundle from Android sdk manager
 
+`git clone https://github.com/triedcatched/tdlib-dart.git`
 `flutter run`
 
 
