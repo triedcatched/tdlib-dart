@@ -52,7 +52,7 @@ class LeftDraw extends StatelessWidget {
           padding: EdgeInsets.only(top: 30.0, left: 20.0, bottom: 5),
           alignment: Alignment.topLeft,
           child: Text(
-            "Telegram Y",
+            "FluGram",
             style: TextStyle(fontSize: 20, color: Colors.red),
           ),
         ),

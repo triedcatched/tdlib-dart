@@ -182,7 +182,7 @@ class _EnterNumberPage extends State<EnterNumberPage>
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tele Y',
+      title: 'FluGram',
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -194,7 +194,8 @@ class _EnterNumberPage extends State<EnterNumberPage>
       },
       home: Scaffold(
           key: _scaffoldContext,
-          body: Column(
+          body: SingleChildScrollView(
+    child:Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -263,7 +264,7 @@ class _EnterNumberPage extends State<EnterNumberPage>
                     ],
                   ),
                 )
-              ])),
+              ]))),
     );
   }
 }

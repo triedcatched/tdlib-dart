@@ -17,7 +17,7 @@ class TitleSection extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8.0),
                   child: Text(
-                    'Telegram Y',
+                    'FluGram',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "Raleway",

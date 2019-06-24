@@ -31,28 +31,43 @@ public class MainActivity extends FlutterActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    // getWindow().setStatusBarColor(0x00000000);
+    // getWindow().setStatusBarColor(0x00000000); // use when that shadow thing is a pain
     GeneratedPluginRegistrant.registerWith(this);
 
     setLogVerbosity(0);
     new MethodChannel(getFlutterView(), CHANNEL).setMethodCallHandler(
             (call, result) -> {
-              if (call.method.equals("createClient")) {
-                long cli = createNativeClient();
-                client_id = cli;
-                result.success(cli);
-              } else if (call.method.equals("clientSend")) {
-                HashMap<String, Object> arg = (HashMap<String, Object>) call.arguments;
-                long client_id = (long) arg.get("client_id");
-                String to_send = (String) arg.get("to_send");
-                nativeClientSend(client_id, to_send);
-                result.success(null);
-              } else if (call.method.equals("clientReceive")) {
-                HashMap<String, Long> arg = (HashMap<String, Long>) call.arguments;
-                final long client_id = arg.get("client_id");
-                task = new MyTask(result, client_id).execute();
-              }else {
-                result.notImplemented();
+              switch (call.method) {
+                case "createClient":
+                  long cli = createNativeClient();
+                  client_id = cli;
+                  result.success(cli);
+                  break;
+                case "clientSend": {
+                  HashMap<String, Object> arg = (HashMap<String, Object>) call.arguments;
+                  long client_id = (long) arg.get("client_id");
+                  String to_send = (String) arg.get("to_send");
+                  nativeClientSend(client_id, to_send);
+                  result.success(null);
+                  break;
+                }
+                case "clientExecute": {
+                  HashMap<String, Object> arg = (HashMap<String, Object>) call.arguments;
+                  long client_id = (long) arg.get("client_id");
+                  String to_send = (String) arg.get("to_send");
+                  String res = nativeClientExecute(client_id, to_send);
+                  result.success(res);
+                  break;
+                }
+                case "clientReceive": {
+                  HashMap<String, Long> arg = (HashMap<String, Long>) call.arguments;
+                  final long client_id = arg.get("client_id");
+                  task = new MyTask(result, client_id).execute();
+                  break;
+                }
+                default:
+                  result.notImplemented();
+                  break;
               }
             });
   }
