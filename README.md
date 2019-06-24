@@ -1,10 +1,11 @@
-# tdlib_dart/FluGram
+# tdlib_dart - FluGram
 
-Telegram on dart
+or Telegram on Flutter
+
 
 ## Getting Started
 
-This project is based on tdlib and currently only supports Android.
+This project is based on tdlib and currently supports only Android.
 libtdjson.so for arm, arm64 and x86 arch has been pre-built.
 
 To build for Android: Setup flutter, download ndk-bundle from Android sdk manager
@@ -15,8 +16,7 @@ To build for Android: Setup flutter, download ndk-bundle from Android sdk manage
 
 ## To create Android APK
 
-```
+`
 flutter build apk --release --target-platform android-arm
 flutter build apk --release --target-platform android-arm64
-flutter build apk --release --target-platform android-x86
 ```

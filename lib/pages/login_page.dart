@@ -137,7 +137,7 @@ class _EnterNumberPage extends State<EnterNumberPage>
         client.sendRequest(
             {'@type': 'checkAuthenticationCode', 'code': _controller.text},
             () => (data) {
-                  print("After submitting phone number");
+                  print("After submitting OTP code");
                   print(data);
                   controller.reset();
                   switch (data['@type']) {
@@ -155,7 +155,7 @@ class _EnterNumberPage extends State<EnterNumberPage>
               'password': _controller.text
             },
             () => (data) {
-                  print("After submitting phone number");
+                  print("After submitting password");
                   print(data);
                   controller.reset();
                   switch (data['@type']) {

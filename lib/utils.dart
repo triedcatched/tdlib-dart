@@ -63,11 +63,6 @@ class Client {
         await _lock.synchronized(() async {
           for (int i = 0; i < _requests.length; i++) {
             if (_requests[i][0] == receivedJson['@extra']) {
-              // print("\nCurrent Requsts\n========");
-              // print(_requests);
-              // print("Current Requsts\n========\n");
-              // print(_requests[i][1]);
-              // print(receivedJson);
               var f = _requests[i][1]();
               f(receivedJson);
               _requests.removeAt(i);

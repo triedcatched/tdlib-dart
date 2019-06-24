@@ -35,47 +35,6 @@ class _ProfilePage extends State<ProfilePage> {
     print(pow(2, 63) - 1);
     onPressd();
 
-    // client.sendRequest(
-    //     {'@type': 'getMe'},
-    //     () => (var received) {
-    //           username = received["first_name"];
-    //           current_user_id = received["id"];
-    //           setState(() {});
-    //           onPressd();
-    //           if (!received["profile_photo"]["small"]['local']
-    //               ['is_downloading_completed']) {
-    //             var _subsc;
-    //             _subsc = client.streamController.stream.listen((data) async {
-    //               var recJson = json.decode(data);
-    //               if (recJson["@type"] == "updateFile" &&
-    //                   received["profile_photo"]["small"]['id'] ==
-    //                       recJson['file']['id'] &&
-    //                   recJson['file']['local']['is_downloading_completed']) {
-    //                 _subsc.cancel();
-    //                 filename = recJson['file']['local']['path'];
-    //                 setState(() {});
-    //               }
-    //             });
-    //             client.sendRequest({
-    //               '@type': 'downloadFile',
-    //               'file_id': received["profile_photo"]["small"]['id'],
-    //               'priority': 32
-    //             }, () => (var r) {});
-    //           } else {
-    //             print("this is the else workd");
-    //             filename = received["profile_photo"]["small"]["local"]["path"];
-    //             setState(() {});
-    //           }
-    //         });
-
-    // clientSend({'@type': 'getAuthorizationState', '@extra': 1.01234});
-    // clientSend({
-    //   '@type': 'getChats',
-    //   'offset_order': (pow(2, 63) - 1),
-    //   'offset_chat_id': 0,
-    //   'limit': 10,
-    //   '@extra': "getchatresultfor10"
-    // });
   }
 
   String filename = "";
@@ -165,24 +124,7 @@ class _ProfilePage extends State<ProfilePage> {
                 height: 50,
                 color: Colors.black,
               ),
-              // profileHeader(),
-              // FlatButton(
-              //   child: Text("Press"),
-              //   onPressed: onPressd,
-              // ),
-              // FlatButton(
-              //   child: Text("delete"),
-              //   onPressed: onPressdelete,
-              // ),
-              // Container(
-              //   padding: const EdgeInsets.only(bottom: 80.0, left: 20.0),
-              //   child: Text(
-              //     'Welcome ' + username,
-              //     style: TextStyle(
-              //       color: Colors.grey[800],
-              //     ),
-              //   ),
-              // ),
+
 
               Container(
                 // height: deviceSize.height / 4,
@@ -257,58 +199,6 @@ class _ProfilePage extends State<ProfilePage> {
               )
             ])));
 
-//     return MaterialApp(
-//       title: 'Tele Y',
-//       home: Scaffold(
-//           appBar: AppBar(
-// //          backgroundColor: Color.fromRGBO(76, 38, 102, 1),
-//             backgroundColor: Colors.black87,
-//             title: Text('Tele Y'),
-//           ),
-//           body: ListView.builder(
-//               itemCount: chats.chats.length,
-//               itemBuilder: (BuildContext ctxt, int i) {
-//                 return ChatRow(chats.chats[i]);
-//               })),
-//     );
-  }
-
-  void _getChats() {
-    print("getChats" + chats.chats.length.toString());
-
-    // chats.sortArray();
-    for (Chat _c in chats.chats) {
-      print(_c.id.toString() + "| " + _c.title + ": " + _c.order.toString());
-    }
-    // clientSend({
-    //   '@type': 'getChats',
-    //   'offset_order': 2 ^ 63 - 1,
-    //   'offset_chat_id': 261619290,
-    //   'limit': 10,
-    //   '@extra': "getchatresultfor10"
-    // });
-
-    // clientSend({
-    //   '@type': 'getChat',
-    //   'chat_id': -14592208,
-    //   '@extra': "getchatresultone"
-    // });
   }
 }
 
-// ListView(
-//             children: <Widget>[
-//               ListTile(
-//                 leading: Icon(Icons.map),
-//                 title: Text('Map'),
-//               ),
-//               ListTile(
-//                 leading: Icon(Icons.photo_album),
-//                 title: Text('Album'),
-//               ),
-//               ListTile(
-//                 leading: Icon(Icons.phone),
-//                 title: Text('Phone'),
-//               ),
-//             ],
-//           )

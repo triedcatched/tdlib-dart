@@ -27,6 +27,7 @@ public class MainActivity extends FlutterActivity {
     super.onDestroy();
   }
 
+  @SuppressWarnings (value="unchecked")
   @TargetApi(Build.VERSION_CODES.CUPCAKE)
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +61,9 @@ public class MainActivity extends FlutterActivity {
                   break;
                 }
                 case "clientReceive": {
-                  HashMap<String, Long> arg = (HashMap<String, Long>) call.arguments;
-                  final long client_id = arg.get("client_id");
+                  HashMap<String, Object> arg = (HashMap<String, Object>) call.arguments;
+                  final long client_id = (long) arg.get("client_id");
+//                  if client_id
                   task = new MyTask(result, client_id).execute();
                   break;
                 }
